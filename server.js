@@ -1,13 +1,20 @@
+// ES way:
 import express from 'express'
 import morgan from 'morgan'
 import campsiteRouter from './routes/campsiteRouter.js'
+import promotionRouter from './routes/promotionRouter.js'
+import partnerRouter from './routes/partnerRouter.js'
+
+// Need to import path as __dirname not defined in ES Module
+// It is defined in CommonJS
+import path from 'path';
+const __dirname = path.resolve();
+
+// CommonJS way:
 // const express = require('express')
 // const morgan = require('morgan')
 // const campsiteRouter = require('./routes/campsiteRouter')
 
-
-import path from 'path';
-const __dirname = path.resolve();
 
 const hostname = 'localhost'
 const port = 3000
@@ -17,6 +24,8 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 app.use('/campsites', campsiteRouter)
+app.use('/promotions', promotionRouter)
+app.use('/partners', partnerRouter)
 
 app.use(express.static(path.join(__dirname, '/public')))
 

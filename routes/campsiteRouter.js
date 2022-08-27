@@ -1,5 +1,5 @@
 import express from 'express'
-// const express = require('express')
+// CommonJS way: const express = require('express')
 
 const campsiteRouter = express.Router()
 
@@ -45,4 +45,4 @@ campsiteRouter.route('/:campsiteId')
 })
 
 export default campsiteRouter
-// module.exports = campsiteRouter
+// CommonJS way: module.exports = campsiteRouter
