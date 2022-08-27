@@ -1,6 +1,17 @@
-const express = require('express')
-const morgan = require('morgan')
-const campsiteRouter = require('./routes/campsiteRouter')
+import express from 'express'
+import morgan from 'morgan'
+import campsiteRouter from './routes/campsiteRouter.js'
+// const express = require('express')
+// const morgan = require('morgan')
+// const campsiteRouter = require('./routes/campsiteRouter')
+// import { fileURLToPath } from 'url'
+// import { dirname } from 'path'
+
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = dirname(__filename)
+
+import path from 'path';
+const __dirname = path.resolve();
 
 const hostname = 'localhost'
 const port = 3000
@@ -11,7 +22,7 @@ app.use(express.json())
 
 app.use('/campsites', campsiteRouter)
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(path.join(__dirname, '/public')))
 
 app.use((req,res) => {
   // console.log(req.headers) <- morgan will do this for us

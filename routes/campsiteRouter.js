@@ -1,4 +1,6 @@
-const express = require('express')
+import express from 'express'
+// const express = require('express')
+
 const campsiteRouter = express.Router()
 
 campsiteRouter.route('/')
@@ -42,4 +44,5 @@ campsiteRouter.route('/:campsiteId')
   res.end(`Deleting campsite: ${req.params.campsiteId}`)
 })
 
-module.exports = campsiteRouter
+export default campsiteRouter
+// module.exports = campsiteRouter
